@@ -1,7 +1,9 @@
 package med.voll.api.controller;
 
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import med.voll.api.domain.direccion.DatosDireccion;
@@ -19,6 +21,7 @@ import java.net.URI;
 @RestController
 @RequestMapping("/medicos")
 @SecurityRequirement(name = "bearer-key")
+@Tag(name = "Medico", description = "Endpoints relacionados con las consultas")
 public class MedicoController {
 
 
@@ -26,6 +29,10 @@ public class MedicoController {
     @Autowired
     private MedicoRepository medicoRepository;
 
+
+
+
+    @Operation(summary = "Registrar medico", description = "proporciona el endpoint para registrar una medico")
     @PostMapping
     @Transactional
     public ResponseEntity<DatosRespuestaMedico> registrarMedico(@RequestBody @Valid DatosRegistroMedico datosRegistroMedico,
@@ -72,6 +79,7 @@ public class MedicoController {
      */
     /*En aula 1.3 se hizo a  Page<DatosListadoMedico>  se le paso por ResponseEntity */
 
+    @Operation(summary = "Listar medicos", description = "proporciona el endpoint para listar los medicos de la base de datos")
     @GetMapping
     public ResponseEntity<Page<DatosListadoMedico>> listadoMedicos(@PageableDefault(size = 2) Pageable paginacion) {
    /*  se comento en la 5 etapa de Delet logico para listar los medicos activos
@@ -107,6 +115,7 @@ public class MedicoController {
     * con código 200, incluyendo un objeto DTO con los datos del médico.
     * */
 
+    @Operation(summary = "Atualizar medico", description = "proporciona el endpoint para actualizar medico en la base de datos")
     @PutMapping
     @Transactional
     public ResponseEntity actualizarMedico(@RequestBody @Valid DatosActualizarMedico datosActualizarMedico) {

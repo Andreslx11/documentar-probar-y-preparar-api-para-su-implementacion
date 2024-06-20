@@ -2,6 +2,7 @@ package med.voll.api.controller;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 import med.voll.api.domain.consulta.AgendaDeConsultaService;
@@ -31,6 +32,7 @@ podemos usar @RestController  o las dos anoataciones juntas @Controller y @Respo
 @ResponseBody
 @RequestMapping("/consultas")
 @SecurityRequirement(name = "bearer-key")
+@Tag(name = "Consultas", description = "Endpoints relacionados con las consultas")
 public class ConsultaController {
 
 
@@ -39,6 +41,7 @@ public class ConsultaController {
     private AgendaDeConsultaService service;
 
     //metodo para agendar las consultas
+    @Operation(summary = "Registrar consulta", description = "proporciona el endpoint para registrar una cita medica")
     @PostMapping
     @Transactional
     public ResponseEntity agendar(@RequestBody @Valid DatosAgendarConsulta datos) throws ValidacionDeIntegridad {
