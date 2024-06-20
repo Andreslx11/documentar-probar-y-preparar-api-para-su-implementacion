@@ -21,6 +21,8 @@ import java.net.URI;
 @SecurityRequirement(name = "bearer-key")
 public class MedicoController {
 
+
+
     @Autowired
     private MedicoRepository medicoRepository;
 

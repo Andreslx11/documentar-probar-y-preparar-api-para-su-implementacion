@@ -33,6 +33,7 @@ podemos usar @RestController  o las dos anoataciones juntas @Controller y @Respo
 @SecurityRequirement(name = "bearer-key")
 public class ConsultaController {
 
+
     //para la inyeccion de depencias por contructor
     @Autowired
     private AgendaDeConsultaService service;

@@ -38,6 +38,11 @@ new SecurityScheme().type(SecurityScheme.Type.HTTP).scheme("bearer").bearerForma
     }
 
 
+
+
+
+
+
     /*  MUY IMPORTANTE
       @SecurityRequirement(name = "bearer-key")
      Ya tenemos el mensaje. Ahora en la documentación de Springdoc nos indica que otro

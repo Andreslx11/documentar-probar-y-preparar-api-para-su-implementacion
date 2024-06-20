@@ -19,6 +19,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 @SecurityRequirement(name = "bearer-key")
 public class PacienteController {
 
+
     @Autowired
     private PacienteRepository repository;
 
