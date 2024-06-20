@@ -1,5 +1,7 @@
 package med.voll.api.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 
 import med.voll.api.domain.consulta.AgendaDeConsultaService;
@@ -28,6 +30,7 @@ podemos usar @RestController  o las dos anoataciones juntas @Controller y @Respo
 @Controller
 @ResponseBody
 @RequestMapping("/consultas")
+@SecurityRequirement(name = "bearer-key")
 public class ConsultaController {
 
     //para la inyeccion de depencias por contructor
